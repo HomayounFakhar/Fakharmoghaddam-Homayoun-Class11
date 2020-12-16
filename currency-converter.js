@@ -70,6 +70,7 @@ if ( targetCurrency == null) {
 
 // --------------------------------------------------
 // Step 4: Ensure that a conversion rate exists
+
 // --------------------------------------------------
 // Since it is possible for the user to supply invalid or unsupported currencies,
 // we must check for the presence of a rate before attempting to convert.
@@ -81,20 +82,34 @@ if ( targetCurrency == null) {
 
 // --------------------------------------------------
 // Step 5: Perform conversion
+var Rate;
 
-If (initialCurrency == 'CAD' ) {
-    
-    if (targetCurrency == 'USD') {
-      amount = amount / 1.32;
-    }
+if (initialCurrency == 'CAD' && targetCurrency == 'USD') {
+    Rate = 1/1.32;
+};
+if (initialCurrency == 'CAD' && targetCurrency == 'RIAL') {
+    Rate = 220000;
+};
+if (initialCurrency == 'USD' && targetCurrency == 'CAD') {
+    Rate = 1.32;
+};
+if (initialCurrency == 'USD' && targetCurrency == 'RIAL') {
+    Rate = 280000;
+};
+if (initialCurrency == 'RIAL' && targetCurrency == 'USD') {
+    Rate = 1/280000;
+};
+if (initialCurrency == 'RIAL' && targetCurrency == 'CAD') {
+    Rate = 1/220000;
+};
+  
+amount=amount*Rate;
+if (isNaN(amount)) {
+    console.log('Your Input doesnt have result');
+} else {
+    console.log(amount*Rate);
+};
 
-    if (targetCurrency == 'RIAL') {
-        amount = amount * 220000;
-    }
-
-}
-
-console.log(amount);
 
 
 // --------------------------------------------------
