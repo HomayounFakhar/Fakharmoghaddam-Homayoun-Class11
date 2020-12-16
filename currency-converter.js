@@ -12,7 +12,7 @@
 // --------------------------------------------------
 // Step 1: Capture user input
 process.argv.map(function(item) {
-    console.log(item);
+
     return item;
     });
 
@@ -33,6 +33,20 @@ process.argv.map(function(item) {
 // Step 2: Validate user input
 // --------------------------------------------------
 // Next we will ensure that the user has provided all of the require information.
+
+if (amount == null )
+{
+console.log('OOPS, Please input correct format for (amount)');
+}
+
+if ( initialCurrency == null ) {
+console.log('OOPS, Please input correct format for (initialCurrency)');
+}
+
+if ( targetCurrency == null) {
+    console.log('OOPS, Please input correct format for (targetCurrency)');
+}
+
 
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
