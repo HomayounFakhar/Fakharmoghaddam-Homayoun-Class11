@@ -20,8 +20,8 @@ process.argv.map(function(item) {
     var initialCurrency = process.argv[3];
     var targetCurrency = process.argv[4];
     console.log('first = ',amount);
-    console.log('Second = ',amount);
-    console.log('Third = ',amount);        
+    console.log('Second = ',initialCurrency);
+    console.log('Third = ',targetCurrency);        
 // --------------------------------------------------
 // In this step we will capture the command line  information supplied by the user.
 
