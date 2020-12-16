@@ -8,8 +8,20 @@
 // differently. There are many paths and approaches that result in a perfectly
 // valid finished product.
 
+
 // --------------------------------------------------
 // Step 1: Capture user input
+process.argv.map(function(item) {
+    console.log(item);
+    return item;
+    });
+
+    var amount = process.argv[2];
+    var initialCurrency = process.argv[3];
+    var targetCurrency = process.argv[4];
+    console.log('first = ',amount);
+    console.log('Second = ',amount);
+    console.log('Third = ',amount);        
 // --------------------------------------------------
 // In this step we will capture the command line  information supplied by the user.
 
