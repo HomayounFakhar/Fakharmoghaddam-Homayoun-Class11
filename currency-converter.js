@@ -20,8 +20,8 @@ process.argv.map(function(item) {
     var initialCurrency = process.argv[3];
     var targetCurrency = process.argv[4];
     console.log('first = ',amount);
-    console.log('Second = ',initialCurrency);
-    console.log('Third = ',targetCurrency);        
+    console.log('initialCurrency = ',initialCurrency);
+    console.log('targetCurrency = ',targetCurrency);        
 // --------------------------------------------------
 // In this step we will capture the command line  information supplied by the user.
 
@@ -46,6 +46,7 @@ console.log('OOPS, Please input correct format for (initialCurrency)');
 if ( targetCurrency == null) {
     console.log('OOPS, Please input correct format for (targetCurrency)');
 }
+
 
 
 // If any of the required information is missing, display a meaningful message
@@ -80,6 +81,22 @@ if ( targetCurrency == null) {
 
 // --------------------------------------------------
 // Step 5: Perform conversion
+
+If (initialCurrency == 'CAD' ) {
+    
+    if (targetCurrency == 'USD') {
+      amount = amount / 1.32;
+    }
+
+    if (targetCurrency == 'RIAL') {
+        amount = amount * 220000;
+    }
+
+}
+
+console.log(amount);
+
+
 // --------------------------------------------------
 // At this point we've confirmed that the user has supplied all of the necessary
 // information, and that a rate exists for each of the currencies.
