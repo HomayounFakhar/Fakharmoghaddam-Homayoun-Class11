@@ -19,9 +19,9 @@ process.argv.map(function(item) {
     var amount = process.argv[2];
     var initialCurrency = process.argv[3];
     var targetCurrency = process.argv[4];
-    console.log('first = ',amount);
-    console.log('initialCurrency = ',initialCurrency);
-    console.log('targetCurrency = ',targetCurrency);        
+//    console.log('first = ',amount);
+//    console.log('initialCurrency = ',initialCurrency);
+//    console.log('targetCurrency = ',targetCurrency);        
 // --------------------------------------------------
 // In this step we will capture the command line  information supplied by the user.
 
@@ -40,13 +40,17 @@ console.log('OOPS, Please input correct format for (amount)');
 }
 
 if ( initialCurrency == null ) {
-console.log('OOPS, Please input correct format for (initialCurrency)');
+console.log('OOPS, Please input correct format for initialCurrency such as CAD USD RIAL');
 }
 
 if ( targetCurrency == null) {
-    console.log('OOPS, Please input correct format for (targetCurrency)');
+    console.log('OOPS, Please input correct format for targetCurrency such as CAD USD RIAL');
 }
 
+
+if ( targetCurrency == initialCurrency) {
+    console.log('OOPS, Please input Different currency ');
+}
 
 
 // If any of the required information is missing, display a meaningful message
@@ -78,12 +82,40 @@ if ( targetCurrency == null) {
 // If the user supplies an invalid initial or target currency, display a meaningful
 // warning message and exit the program.
 
+if (isNaN(initialCurrency) && isNaN(targetCurrency) ) {
+console.log('');
+} else {
+initialCurrency=initialCurrency.toUpperCase();
+targetCurrency=targetCurrency.toUpperCase();
+};
+
+
+// Correct Input
+if (initialCurrency == 'C' || initialCurrency == 'CA' ) {
+    initialCurrency = 'CAD'
+};
+if (initialCurrency == 'U' || initialCurrency == 'US' ) {
+    initialCurrency = 'USD'
+};
+if (initialCurrency == 'R' || initialCurrency == 'RI' ) {
+    initialCurrency = 'RIAL'
+};
+
+if (targetCurrency == 'C' || targetCurrency == 'CA' ) {
+    targetCurrency = 'CAD'
+};
+if (targetCurrency == 'U' || targetCurrency == 'US' ) {
+    targetCurrency = 'USD'
+};
+if (targetCurrency == 'R' || targetCurrency == 'RI' ) {
+    targetCurrency = 'RIAL'
+};
 
 
 // --------------------------------------------------
-// Step 5: Perform conversion
-var Rate;
 
+var Rate;
+Rate = 0;
 if (initialCurrency == 'CAD' && targetCurrency == 'USD') {
     Rate = 1/1.32;
 };
@@ -102,14 +134,9 @@ if (initialCurrency == 'RIAL' && targetCurrency == 'USD') {
 if (initialCurrency == 'RIAL' && targetCurrency == 'CAD') {
     Rate = 1/220000;
 };
+
   
 amount=amount*Rate;
-if (isNaN(amount)) {
-    console.log('Your Input doesnt have result');
-} else {
-    console.log(amount*Rate);
-};
-
 
 
 // --------------------------------------------------
@@ -122,6 +149,13 @@ if (isNaN(amount)) {
 
 // --------------------------------------------------
 // Step 6: Display results
+
+if (isNaN(amount)) {
+    console.log('Your Input doesnt have result');
+} else {
+    console.log(amount);
+};
+
 // --------------------------------------------------
 // Finally we will display the result as part of a meaningful message.
 
